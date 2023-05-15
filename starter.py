@@ -1,12 +1,24 @@
 #SOUCE: https://machinelearningmastery.com/clustering-algorithms-with-python/
+#SOURCE: https://pytorch.org/tutorials/beginner/basics/data_tutorial.html?highlight=dataset
 
 #GAUSSIAN MIXTURE
+#https://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html#sklearn.mixture.GaussianMixture
 from numpy import unique
 from numpy import where
 from sklearn.datasets import make_classification
 from sklearn.mixture import GaussianMixture
 from matplotlib import pyplot
+import os
+import pandas as pd
+import numpy as np
+
+def create_frame(filename):
+    frame = pd.read_csv(filename)
+    return frame
+
 # define dataset
+df = create_frame("metal_vs_density.csv")
+print(df.to_string())
 X, _ = make_classification(n_samples=1000, n_features=2, n_informative=2, n_redundant=0, n_clusters_per_class=1, random_state=4)
 # TODO HERE: transform the planet data from a csv into something usable here.
 # define the model
