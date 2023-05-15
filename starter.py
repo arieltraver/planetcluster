@@ -33,7 +33,7 @@ clusters = unique(yhat)
 # create scatter plot for samples from each cluster
 for cluster in clusters:
     # get row indexes for samples with this cluster
-    row_ix = where(yhat == cluster)
+    row_ix = where(yhat != cluster)
     df_filtered = df2.drop(row_ix[0])
     # create scatter of these samples
     pyplot.scatter(df_filtered["pl_dens"], df_filtered["st_met"])
